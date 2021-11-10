@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:splash_screen/loginsceen.dart';
+//gimport 'package:splash_screen/loginsceen.dart';
 
 class SplashScreen extends StatefulWidget {
 
