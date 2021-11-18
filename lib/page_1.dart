@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:git_samples/login.dart';
 //gimport 'package:splash_screen/loginsceen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -21,13 +22,14 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: SafeArea(
         child: Center(
-          child: Image.asset('assets/Ecimage.jpg',height: 300),),
+          child: ClipRRect(borderRadius: BorderRadius.circular(300),
+              child: Image.asset('assets/dragon.jpg',height: 300)),),
       ),
     );
   }
 
   Future<void>gotoLogin()async{
-    await Future.delayed(Duration(seconds: 5));
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginScreen()));
+    await Future.delayed(Duration(seconds: 8));
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginPage()));
   }
 }
