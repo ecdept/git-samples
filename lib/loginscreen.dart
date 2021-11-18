@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:git_samples/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -51,9 +52,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: 20),
                   ElevatedButton(onPressed: () {
-                    _formKey.currentState!.validate();
-                    checkLogin(context);
-                  }, child: Text('Log in'))
+                    if (_formKey.currentState!.validate()) {
+                      checkLogin(context);
+
+                    }
+                  },
+                    child: Text('Log in')),
                 ],
               ),
             )),
@@ -63,14 +67,15 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void checkLogin(BuildContext context)
   {
-    if (username==password){
-
+    if (username.text==password.text){
+        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>HomeScreen()));
+      print('correct');
     }
     else{
 
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text('Username Password Mismatch'),));
-           print('error');
+
 
     }
   }
