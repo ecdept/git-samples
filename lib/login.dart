@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:git_samples/Screen_2.dart';
 class LoginPage extends StatelessWidget {
 final username= TextEditingController();
 final password= TextEditingController();
@@ -26,9 +27,12 @@ final password= TextEditingController();
                 ),
               ),
               SizedBox(height: 20),
-              ElevatedButton(onPressed: (){
-
-              }, child: Text('login'))
+              ElevatedButton(onPressed: ()
+              {
+                  Checklogin(context);
+                  print(username);
+              },
+                  child: Text('login'))
             ],
           ),
         ),
@@ -37,11 +41,16 @@ final password= TextEditingController();
 
   }
 
-  Checklogin()
+  Checklogin(context)
   {
-    if(username==password)
+    if(username.text==password.text)
     {
-
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ScreenTwo()));
+       // print(username);
+        print(username.text);
     }
-  }
+    else{
+      print('not');
+    }
+    }
 }
