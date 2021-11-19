@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:git_samples/home_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'main.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -65,13 +68,17 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  void checkLogin(BuildContext context)
+  void checkLogin(BuildContext context)async
   {
     if (username.text==password.text){
+       final sharedPref=await SharedPreferences.getInstance();
+      await sharedPref.setBool(key, true);
         Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>HomeScreen()));
       print('correct');
     }
     else{
+      final sharedPref=await SharedPreferences.getInstance();
+      await sharedPref.setBool(key, false);
 
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text('Username Password Mismatch'),));

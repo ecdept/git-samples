@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:git_samples/splashscreen.dart';
 //import 'package:splash_screen/splashscreen.dart';
+String key='';
 void main(){
   runApp(MyApp());
 }
