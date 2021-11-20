@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:git_samples/Screen_2.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 class LoginPage extends StatelessWidget {
 final username= TextEditingController();
 final password= TextEditingController();
@@ -31,6 +33,7 @@ final password= TextEditingController();
               SizedBox(height: 20),
               ElevatedButton(onPressed: ()
               {
+                  savetosharedpref();
                   Checklogin(context);
 
               },
@@ -55,4 +58,11 @@ final password= TextEditingController();
       print('not');
     }
     }
+    Future<void> savetosharedpref()async{
+    final sharedpref=await SharedPreferences.getInstance();
+     sharedpref.setString('key1', username.text);
+     sharedpref.setString('key2', password.text);
+
+    }
+
 }

@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:git_samples/film_Star.dart';
 import 'package:git_samples/football.dart';
+import 'package:git_samples/login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'cricket.dart';
 
 
@@ -24,23 +26,36 @@ class ScreenTwo extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 25),
-              ElevatedButton(
-                  onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Cricket(),));
-              }, child: Text('cricket')),
+              SizedBox(
+                width: 90,
+                child: ElevatedButton(
+                    onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Cricket(),));
+                }, child: Text('cricket')),
+              ),
               SizedBox(height: 15),
-              ElevatedButton(onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FilmStar(),));
-              }, child: Text('film Star',)),
+              SizedBox(
+                width: 90,
+                child: ElevatedButton(onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FilmStar(),));
+                }, child: Text('film Star',)),
+              ),
               SizedBox(height: 15),
-              ElevatedButton(onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FootBall(),));
-              }, child: Text('football')),
+              SizedBox(
+                width: 90,
+                child: ElevatedButton(onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FootBall(),));
+                }, child: Text('football')),
+              ),
               SizedBox(height: 150),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Cricket(),));
-                  }, child: Text('Logout')),
+              SizedBox(
+                width: 90,
+                child: ElevatedButton(
+                    onPressed: () {
+                      clearPrefvalue();
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginPage(),));
+                    }, child: Text('Logout')),
+              ),
             ],
           ),
         ),
@@ -54,5 +69,9 @@ class ScreenTwo extends StatelessWidget {
         ),
       ),
     );
+  }
+  Future<void> clearPrefvalue()async{
+    final sharedpref=await SharedPreferences.getInstance();
+    sharedpref.clear();
   }
 }

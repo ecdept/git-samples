@@ -17,7 +17,7 @@ class Cricket extends StatelessWidget {
             ),
             SizedBox(height: 20),
             ElevatedButton(onPressed: (){
-              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ScreenTwo()));
+              Navigator.of(context).pop();
               },
                 child: Text('Go to home screen'))
           ],
