@@ -7,19 +7,21 @@ final password= TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[350],
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
+              SizedBox(height: 30),
               TextField(
                 controller: username,
                 decoration: InputDecoration(hintText: 'username',
                   enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.teal))
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(height: 30,),
               TextField(
                 controller: password,
                 decoration: InputDecoration(hintText: 'password',
@@ -30,7 +32,7 @@ final password= TextEditingController();
               ElevatedButton(onPressed: ()
               {
                   Checklogin(context);
-                  print(username);
+
               },
                   child: Text('login'))
             ],
