@@ -17,7 +17,8 @@ class HomeScreen extends StatelessWidget {
               },icon: Icon(Icons.ac_unit),)
             ],
           ),
-          body: Center(child: Text('Home Screen'),),
+          body: Center(child: TextButton(onPressed: () { print('print'); },
+          child: Text('Next Page'),)),
         ));
   }
 }
