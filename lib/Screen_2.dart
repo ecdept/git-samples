@@ -4,6 +4,7 @@ import 'package:git_samples/film_Star.dart';
 import 'package:git_samples/football.dart';
 import 'package:git_samples/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'bottomfield.dart';
 import 'cricket.dart';
 
 
@@ -47,7 +48,13 @@ class ScreenTwo extends StatelessWidget {
                   Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FootBall(),));
                 }, child: Text('football')),
               ),
-              SizedBox(height: 150),
+              SizedBox(height: 15),
+              SizedBox(width: 90,child: ElevatedButton(onPressed: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Bottomfield(),));
+                }, child: Text('settings'),
+              ),),
+
+              SizedBox(height: 100),
               SizedBox(
                 width: 90,
                 child: ElevatedButton(

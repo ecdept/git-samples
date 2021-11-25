@@ -13,19 +13,14 @@ class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
-
 class _SplashScreenState extends State<SplashScreen> {
-
   @override
   void initState() {
    Timer(Duration(seconds: 3), (){
      checkpreferencevalue();
    });
-
-
     super.initState();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +31,6 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
     );
   }
-
   Future<void>gotoLogin()async{
     await Future.delayed(Duration(seconds: 3));
     Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginPage()));
@@ -52,11 +46,10 @@ class _SplashScreenState extends State<SplashScreen> {
       }
     }
     else{
-
       Navigator.of(context).push(MaterialPageRoute(builder: (context) => ScreenTwo()));
-
     }
-
   }
+}
 
-  }
+
+

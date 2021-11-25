@@ -48,7 +48,7 @@ final password= TextEditingController();
 
   Checklogin(context)
   {
-    if(username.text==password.text)
+    if(username.text==password.text && username.text!='')
     {
         Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ScreenTwo()));
        // print(username);
